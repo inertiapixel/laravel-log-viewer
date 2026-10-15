@@ -1,0 +1,2 @@
+{"message":"JSON entry","context":{"user_id":7},"level":200,"level_name":"INFO","channel":"production","datetime":"2026-10-15T09:30:00.123456+00:00","extra":{}}
+{"message":"JSON failure","context":{"exception":{"class":"DomainException","message":"JSON exception","code":0,"file":"/var/www/html/app/Services/PaymentService.php:21"}},"level":400,"level_name":"ERROR","channel":"production","datetime":"2026-10-15T09:30:00.123456+00:00","extra":{}}

@@ -1,0 +1,171 @@
+/*
+ * InertiaPixel Log Viewer: base styles.
+ *
+ * Every selector starts at .ipx-log-viewer (or .ipx-log-viewer-page for
+ * the standalone document body). The viewer sets every inherited property
+ * explicitly so it looks the same in a bare application and inside pages
+ * that use Tailwind, Bootstrap or custom CSS; it never styles host markup.
+ */
+
+.ipx-log-viewer-page {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--ipx-lv-color-page);
+    color-scheme: light;
+}
+
+.ipx-log-viewer-page--theme-dark {
+    color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+    .ipx-log-viewer-page--theme-auto {
+        color-scheme: dark;
+    }
+}
+
+.ipx-log-viewer {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: var(--ipx-lv-space-6);
+    background-color: var(--ipx-lv-color-page);
+    color: var(--ipx-lv-color-text);
+    color-scheme: light;
+    font-family: var(--ipx-lv-font-sans);
+    font-size: var(--ipx-lv-font-size);
+    font-style: normal;
+    font-weight: var(--ipx-lv-weight-normal);
+    line-height: var(--ipx-lv-leading);
+    letter-spacing: normal;
+    text-align: left;
+    text-indent: 0;
+    text-transform: none;
+    text-shadow: none;
+    white-space: normal;
+    word-spacing: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+.ipx-log-viewer--theme-dark {
+    color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+    .ipx-log-viewer--theme-auto {
+        color-scheme: dark;
+    }
+}
+
+.ipx-log-viewer *,
+.ipx-log-viewer *::before,
+.ipx-log-viewer *::after {
+    box-sizing: border-box;
+}
+
+/* Neutralize host typography resets and spacing on the few elements used without a class. */
+.ipx-log-viewer :where(h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, pre, fieldset, legend, table, caption, th, td, form, figure, details, summary) {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+}
+
+.ipx-log-viewer :where(ul, ol) {
+    list-style: none;
+}
+
+.ipx-log-viewer :where(button, input, select, textarea) {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+}
+
+.ipx-log-viewer :where(a) {
+    color: var(--ipx-lv-color-primary);
+    text-decoration: none;
+}
+
+.ipx-log-viewer :where(code, pre, kbd, samp) {
+    font-family: var(--ipx-lv-font-mono);
+}
+
+.ipx-log-viewer :where(svg) {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* The [hidden] attribute must win over component display values. */
+.ipx-log-viewer [hidden] {
+    display: none !important;
+}
+
+.ipx-log-viewer :focus-visible {
+    outline: 2px solid var(--ipx-lv-color-focus);
+    outline-offset: 2px;
+}
+
+.ipx-log-viewer .ipx-log-viewer__sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.ipx-log-viewer .ipx-log-viewer__skip-link {
+    position: absolute;
+    left: var(--ipx-lv-space-4);
+    top: var(--ipx-lv-space-2);
+    z-index: 100;
+    padding: var(--ipx-lv-space-2) var(--ipx-lv-space-3);
+    border-radius: var(--ipx-lv-radius-md);
+    background-color: var(--ipx-lv-color-primary);
+    color: var(--ipx-lv-color-primary-contrast);
+    font-weight: var(--ipx-lv-weight-semibold);
+    transform: translateY(-200%);
+}
+
+.ipx-log-viewer .ipx-log-viewer__skip-link:focus {
+    transform: none;
+}
+
+.ipx-log-viewer .ipx-log-viewer__icon {
+    flex: none;
+    width: 16px;
+    height: 16px;
+}
+
+.ipx-log-viewer .ipx-log-viewer__muted {
+    color: var(--ipx-lv-color-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ipx-log-viewer *,
+    .ipx-log-viewer *::before,
+    .ipx-log-viewer *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .ipx-log-viewer {
+        padding: var(--ipx-lv-space-4);
+    }
+}

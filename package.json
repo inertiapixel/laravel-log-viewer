@@ -1,0 +1,19 @@
+{
+    "name": "@inertiapixel/laravel-log-viewer-build",
+    "private": true,
+    "description": "Development-only build and test tooling for inertiapixel/laravel-log-viewer. Consumers never install these packages: the compiled assets ship in resources/dist.",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "build": "node build.mjs",
+        "watch": "node build.mjs --watch",
+        "test": "playwright test",
+        "test:chromium": "playwright test --project=chromium"
+    },
+    "devDependencies": {
+        "@playwright/test": "1.62.0",
+        "chart.js": "4.5.1",
+        "esbuild": "0.28.2",
+        "vanilla-calendar-pro": "3.4.0"
+    }
+}

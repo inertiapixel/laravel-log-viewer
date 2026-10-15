@@ -1,0 +1,21 @@
+[2026-10-15 09:30:00] production.INFO: User logged in {"user_id":42,"ip":"203.0.113.9"} 
+[2026-10-15 09:30:00] production.DEBUG: Cache miss for key users:42  
+[2026-10-15 09:30:00] production.WARNING: Slow query detected {"sql":"select * from users where email = ?","time_ms":1532} 
+[2026-10-15 09:30:00] production.NOTICE: Password reset requested {"email":"jane@example.com","password":"hunter2","token":"abc123def456"} 
+[2026-10-15 09:30:00] production.ERROR: Payment gateway timeout {"exception":"[object] (RuntimeException(code: 504): Payment gateway timeout at /var/www/html/app/Services/PaymentService.php:15)
+[stacktrace]
+#0 {main}
+
+[previous exception] [object] (InvalidArgumentException(code: 0): Invalid currency at /var/www/html/app/Services/PaymentService.php:15)
+[stacktrace]
+#0 {main}
+","order_id":"A-1001"} 
+[2026-10-15 09:30:00] production.CRITICAL: Multi-line message
+second line of the message
+third line  
+[2026-10-15 09:30:00] production.INFO: <script>alert("xss")</script> & <b>bold</b>  
+[2026-10-15 09:30:00] production.ERROR: Unhandled exception {"exception":"[object] (LogicException(code: 0): Nested failure at /var/www/html/app/Services/PaymentService.php:18)
+[stacktrace]
+#0 /var/www/html/app/Services/PaymentService.php(18): {closure:/var/www/html/app/Services/PaymentService.php:18}()
+#1 {main}
+"} 

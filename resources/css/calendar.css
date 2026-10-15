@@ -1,0 +1,232 @@
+/*
+ * InertiaPixel Log Viewer: date-range calendar.
+ *
+ * Skin for vanilla-calendar-pro (MIT). The library's own stylesheet is not
+ * bundled: the viewer renames the calendar's classes to
+ * ipx-log-viewer__vc-* (see resources/js/date-range.js) and styles them
+ * here with the package tokens, so nothing leaks to, or from, other
+ * calendars on the page.
+ */
+
+.ipx-log-viewer .ipx-log-viewer__vc-calendar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 256px;
+    color: var(--ipx-lv-color-text);
+    font-size: var(--ipx-lv-text-sm);
+    user-select: none;
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-controls {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-arrow {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--ipx-lv-radius-md);
+    background-color: transparent;
+    color: var(--ipx-lv-color-text-secondary);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-arrow::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    border-bottom: 2px solid currentColor;
+    border-left: 2px solid currentColor;
+    transform: translate(-30%, -50%) rotate(45deg);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-arrow--next::before {
+    transform: translate(-70%, -50%) rotate(-135deg);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-arrow:hover {
+    background-color: var(--ipx-lv-color-surface-hover);
+    color: var(--ipx-lv-color-text);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-arrow:focus-visible,
+.ipx-log-viewer .ipx-log-viewer__vc-date-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--ipx-lv-ring);
+    position: relative;
+    z-index: 1;
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ipx-lv-space-6);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-column {
+    display: flex;
+    flex: 1 1 232px;
+    flex-direction: column;
+    min-width: 232px;
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    margin-bottom: var(--ipx-lv-space-2);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-header-content {
+    display: flex;
+    align-items: center;
+    gap: var(--ipx-lv-space-1);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-month,
+.ipx-log-viewer .ipx-log-viewer__vc-year {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    color: var(--ipx-lv-color-text);
+    font: inherit;
+    font-size: var(--ipx-lv-text-md);
+    font-weight: var(--ipx-lv-weight-semibold);
+    cursor: default;
+    opacity: 1;
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-wrapper,
+.ipx-log-viewer .ipx-log-viewer__vc-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-week {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    margin-bottom: var(--ipx-lv-space-1);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-week-day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    color: var(--ipx-lv-color-muted);
+    font-size: var(--ipx-lv-text-xs);
+    font-weight: var(--ipx-lv-weight-medium);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-dates {
+    display: grid;
+    gap: 2px 0;
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-dates-row {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-date {
+    position: relative;
+    display: flex;
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-date-btn {
+    width: 100%;
+    min-width: 32px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--ipx-lv-radius-md);
+    background-color: transparent;
+    color: var(--ipx-lv-color-text);
+    font: inherit;
+    font-size: var(--ipx-lv-text-sm);
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+    transition: background-color var(--ipx-lv-transition);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-date-btn:hover {
+    background-color: var(--ipx-lv-color-surface-hover);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-month="prev"] .ipx-log-viewer__vc-date-btn,
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-month="next"] .ipx-log-viewer__vc-date-btn {
+    color: var(--ipx-lv-color-muted);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-today] .ipx-log-viewer__vc-date-btn {
+    font-weight: var(--ipx-lv-weight-semibold);
+    box-shadow: inset 0 0 0 1px var(--ipx-lv-color-border-strong);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-disabled] .ipx-log-viewer__vc-date-btn {
+    color: var(--ipx-lv-color-muted);
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-hover] .ipx-log-viewer__vc-date-btn,
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-selected="middle"] .ipx-log-viewer__vc-date-btn {
+    border-radius: 0;
+    background-color: var(--ipx-lv-color-primary-soft);
+    color: var(--ipx-lv-color-text);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-selected="first"] .ipx-log-viewer__vc-date-btn,
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-selected="last"] .ipx-log-viewer__vc-date-btn,
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-selected="first-and-last"] .ipx-log-viewer__vc-date-btn,
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-selected=""] .ipx-log-viewer__vc-date-btn {
+    background-color: var(--ipx-lv-color-primary);
+    color: var(--ipx-lv-color-primary-contrast);
+    font-weight: var(--ipx-lv-weight-semibold);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-selected="first"] .ipx-log-viewer__vc-date-btn,
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-hover="first"] .ipx-log-viewer__vc-date-btn {
+    border-radius: var(--ipx-lv-radius-md) 0 0 var(--ipx-lv-radius-md);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-selected="last"] .ipx-log-viewer__vc-date-btn,
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-hover="last"] .ipx-log-viewer__vc-date-btn {
+    border-radius: 0 var(--ipx-lv-radius-md) var(--ipx-lv-radius-md) 0;
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-selected="first-and-last"] .ipx-log-viewer__vc-date-btn,
+.ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-hover="first-and-last"] .ipx-log-viewer__vc-date-btn {
+    border-radius: var(--ipx-lv-radius-md);
+}
+
+.ipx-log-viewer .ipx-log-viewer__vc-date-range-tooltip,
+.ipx-log-viewer .ipx-log-viewer__vc-date-popup {
+    display: none;
+}
+
+@media (forced-colors: active) {
+    .ipx-log-viewer .ipx-log-viewer__vc-date[data-vc-date-selected] .ipx-log-viewer__vc-date-btn {
+        outline: 2px solid Highlight;
+    }
+}

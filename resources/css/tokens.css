@@ -1,0 +1,244 @@
+/*
+ * InertiaPixel Log Viewer: design tokens.
+ *
+ * Every token is scoped to the viewer root (.ipx-log-viewer) or the
+ * standalone page body (.ipx-log-viewer-page); nothing is defined on :root.
+ * Override any token on .ipx-log-viewer (or an ancestor) to restyle the
+ * viewer, e.g. .ipx-log-viewer { --ipx-lv-color-primary: #7c3aed; }
+ */
+
+.ipx-log-viewer,
+.ipx-log-viewer-page {
+    /* Typography */
+    --ipx-lv-font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    --ipx-lv-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --ipx-lv-font-size: 14px;
+    --ipx-lv-text-xs: 12px;
+    --ipx-lv-text-sm: 13px;
+    --ipx-lv-text-md: 14px;
+    --ipx-lv-text-lg: 16px;
+    --ipx-lv-text-xl: 20px;
+    --ipx-lv-text-2xl: 24px;
+    --ipx-lv-text-3xl: 28px;
+    --ipx-lv-leading: 1.5;
+    --ipx-lv-leading-tight: 1.25;
+    --ipx-lv-weight-normal: 400;
+    --ipx-lv-weight-medium: 500;
+    --ipx-lv-weight-semibold: 600;
+
+    /* Spacing (4px scale) */
+    --ipx-lv-space-1: 4px;
+    --ipx-lv-space-2: 8px;
+    --ipx-lv-space-3: 12px;
+    --ipx-lv-space-4: 16px;
+    --ipx-lv-space-5: 20px;
+    --ipx-lv-space-6: 24px;
+    --ipx-lv-space-8: 32px;
+    --ipx-lv-space-10: 40px;
+
+    /* Radii */
+    --ipx-lv-radius-sm: 4px;
+    --ipx-lv-radius-md: 6px;
+    --ipx-lv-radius-lg: 10px;
+    --ipx-lv-radius-full: 999px;
+
+    /* Surfaces and text */
+    --ipx-lv-color-page: #f6f7f9;
+    --ipx-lv-color-surface: #ffffff;
+    --ipx-lv-color-surface-muted: #f8fafc;
+    --ipx-lv-color-surface-hover: #f1f5f9;
+    --ipx-lv-color-border: #e2e8f0;
+    --ipx-lv-color-border-strong: #cbd5e1;
+    --ipx-lv-color-text: #0f172a;
+    --ipx-lv-color-text-secondary: #334155;
+    --ipx-lv-color-muted: #64748b;
+
+    /* Actions and feedback */
+    --ipx-lv-color-primary: #1d4ed8;
+    --ipx-lv-color-primary-hover: #1e40af;
+    --ipx-lv-color-primary-contrast: #ffffff;
+    --ipx-lv-color-primary-soft: #eff6ff;
+    --ipx-lv-color-danger: #b91c1c;
+    --ipx-lv-color-danger-soft: #fef2f2;
+    --ipx-lv-color-danger-border: #fecaca;
+    --ipx-lv-color-notice: #1e40af;
+    --ipx-lv-color-notice-soft: #eff6ff;
+    --ipx-lv-color-notice-border: #bfdbfe;
+    --ipx-lv-color-focus: #2563eb;
+    --ipx-lv-color-code-bg: #f8fafc;
+    --ipx-lv-color-code-text: #0f172a;
+    --ipx-lv-color-overlay: rgba(15, 23, 42, 0.04);
+
+    /* Log levels: background, text, border (text contrast >= 4.5:1) */
+    --ipx-lv-level-emergency-bg: #7f1d1d;
+    --ipx-lv-level-emergency-text: #ffffff;
+    --ipx-lv-level-emergency-border: #7f1d1d;
+    --ipx-lv-level-alert-bg: #b91c1c;
+    --ipx-lv-level-alert-text: #ffffff;
+    --ipx-lv-level-alert-border: #b91c1c;
+    --ipx-lv-level-critical-bg: #fee2e2;
+    --ipx-lv-level-critical-text: #991b1b;
+    --ipx-lv-level-critical-border: #fca5a5;
+    --ipx-lv-level-error-bg: #fef2f2;
+    --ipx-lv-level-error-text: #b91c1c;
+    --ipx-lv-level-error-border: #fecaca;
+    --ipx-lv-level-warning-bg: #fffbeb;
+    --ipx-lv-level-warning-text: #92400e;
+    --ipx-lv-level-warning-border: #fde68a;
+    --ipx-lv-level-notice-bg: #eef2ff;
+    --ipx-lv-level-notice-text: #4338ca;
+    --ipx-lv-level-notice-border: #c7d2fe;
+    --ipx-lv-level-info-bg: #eff6ff;
+    --ipx-lv-level-info-text: #1d4ed8;
+    --ipx-lv-level-info-border: #bfdbfe;
+    --ipx-lv-level-debug-bg: #f1f5f9;
+    --ipx-lv-level-debug-text: #475569;
+    --ipx-lv-level-debug-border: #e2e8f0;
+    --ipx-lv-level-unknown-bg: #ffffff;
+    --ipx-lv-level-unknown-text: #64748b;
+    --ipx-lv-level-unknown-border: #cbd5e1;
+
+    /* Charts (validated for colour-vision deficiency and contrast on the surface) */
+    --ipx-lv-chart-errors: #c22f2f;
+    --ipx-lv-chart-warnings: #d97706;
+    --ipx-lv-chart-other: #2a78d6;
+    --ipx-lv-chart-bar: #2a78d6;
+    --ipx-lv-chart-grid: #e2e8f0;
+    --ipx-lv-chart-axis: #64748b;
+
+    /* Effects */
+    --ipx-lv-shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+    --ipx-lv-shadow-md: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+    --ipx-lv-shadow-lg: 0 12px 32px -8px rgba(15, 23, 42, 0.18), 0 4px 8px -4px rgba(15, 23, 42, 0.08);
+    --ipx-lv-ring: 0 0 0 2px var(--ipx-lv-color-surface), 0 0 0 4px var(--ipx-lv-color-focus);
+    --ipx-lv-transition: 120ms ease;
+}
+
+/* Dark theme: explicit ("dark") or following the OS ("auto"). */
+.ipx-log-viewer--theme-dark,
+.ipx-log-viewer-page--theme-dark {
+    --ipx-lv-color-page: #0b1120;
+    --ipx-lv-color-surface: #111827;
+    --ipx-lv-color-surface-muted: #0f172a;
+    --ipx-lv-color-surface-hover: #1e293b;
+    --ipx-lv-color-border: #263244;
+    --ipx-lv-color-border-strong: #3b4a60;
+    --ipx-lv-color-text: #f1f5f9;
+    --ipx-lv-color-text-secondary: #cbd5e1;
+    --ipx-lv-color-muted: #94a3b8;
+    --ipx-lv-color-primary: #60a5fa;
+    --ipx-lv-color-primary-hover: #93c5fd;
+    --ipx-lv-color-primary-contrast: #0b1220;
+    --ipx-lv-color-primary-soft: #172554;
+    --ipx-lv-color-danger: #fca5a5;
+    --ipx-lv-color-danger-soft: #2a1215;
+    --ipx-lv-color-danger-border: #7f1d1d;
+    --ipx-lv-color-notice: #93c5fd;
+    --ipx-lv-color-notice-soft: #0f1d3a;
+    --ipx-lv-color-notice-border: #1e3a8a;
+    --ipx-lv-color-focus: #60a5fa;
+    --ipx-lv-color-code-bg: #0b1220;
+    --ipx-lv-color-code-text: #e2e8f0;
+    --ipx-lv-color-overlay: rgba(255, 255, 255, 0.04);
+    --ipx-lv-level-emergency-bg: #fecaca;
+    --ipx-lv-level-emergency-text: #450a0a;
+    --ipx-lv-level-emergency-border: #fecaca;
+    --ipx-lv-level-alert-bg: #f87171;
+    --ipx-lv-level-alert-text: #1f0505;
+    --ipx-lv-level-alert-border: #f87171;
+    --ipx-lv-level-critical-bg: #450a0a;
+    --ipx-lv-level-critical-text: #fecaca;
+    --ipx-lv-level-critical-border: #991b1b;
+    --ipx-lv-level-error-bg: #2a1215;
+    --ipx-lv-level-error-text: #fca5a5;
+    --ipx-lv-level-error-border: #7f1d1d;
+    --ipx-lv-level-warning-bg: #2a1d08;
+    --ipx-lv-level-warning-text: #fcd34d;
+    --ipx-lv-level-warning-border: #78350f;
+    --ipx-lv-level-notice-bg: #1e1b4b;
+    --ipx-lv-level-notice-text: #c7d2fe;
+    --ipx-lv-level-notice-border: #3730a3;
+    --ipx-lv-level-info-bg: #0f1d3a;
+    --ipx-lv-level-info-text: #93c5fd;
+    --ipx-lv-level-info-border: #1e3a8a;
+    --ipx-lv-level-debug-bg: #1e293b;
+    --ipx-lv-level-debug-text: #cbd5e1;
+    --ipx-lv-level-debug-border: #334155;
+    --ipx-lv-level-unknown-bg: transparent;
+    --ipx-lv-level-unknown-text: #94a3b8;
+    --ipx-lv-level-unknown-border: #475569;
+    --ipx-lv-chart-errors: #d03b3b;
+    --ipx-lv-chart-warnings: #c98500;
+    --ipx-lv-chart-other: #3987e5;
+    --ipx-lv-chart-bar: #3987e5;
+    --ipx-lv-chart-grid: #1f2a3a;
+    --ipx-lv-chart-axis: #94a3b8;
+    --ipx-lv-shadow-sm: none;
+    --ipx-lv-shadow-md: none;
+    --ipx-lv-shadow-lg: 0 16px 40px -8px rgba(0, 0, 0, 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+    .ipx-log-viewer--theme-auto,
+    .ipx-log-viewer-page--theme-auto {
+        --ipx-lv-color-page: #0b1120;
+        --ipx-lv-color-surface: #111827;
+        --ipx-lv-color-surface-muted: #0f172a;
+        --ipx-lv-color-surface-hover: #1e293b;
+        --ipx-lv-color-border: #263244;
+        --ipx-lv-color-border-strong: #3b4a60;
+        --ipx-lv-color-text: #f1f5f9;
+        --ipx-lv-color-text-secondary: #cbd5e1;
+        --ipx-lv-color-muted: #94a3b8;
+        --ipx-lv-color-primary: #60a5fa;
+        --ipx-lv-color-primary-hover: #93c5fd;
+        --ipx-lv-color-primary-contrast: #0b1220;
+        --ipx-lv-color-primary-soft: #172554;
+        --ipx-lv-color-danger: #fca5a5;
+        --ipx-lv-color-danger-soft: #2a1215;
+        --ipx-lv-color-danger-border: #7f1d1d;
+        --ipx-lv-color-notice: #93c5fd;
+        --ipx-lv-color-notice-soft: #0f1d3a;
+        --ipx-lv-color-notice-border: #1e3a8a;
+        --ipx-lv-color-focus: #60a5fa;
+        --ipx-lv-color-code-bg: #0b1220;
+        --ipx-lv-color-code-text: #e2e8f0;
+        --ipx-lv-color-overlay: rgba(255, 255, 255, 0.04);
+        --ipx-lv-level-emergency-bg: #fecaca;
+        --ipx-lv-level-emergency-text: #450a0a;
+        --ipx-lv-level-emergency-border: #fecaca;
+        --ipx-lv-level-alert-bg: #f87171;
+        --ipx-lv-level-alert-text: #1f0505;
+        --ipx-lv-level-alert-border: #f87171;
+        --ipx-lv-level-critical-bg: #450a0a;
+        --ipx-lv-level-critical-text: #fecaca;
+        --ipx-lv-level-critical-border: #991b1b;
+        --ipx-lv-level-error-bg: #2a1215;
+        --ipx-lv-level-error-text: #fca5a5;
+        --ipx-lv-level-error-border: #7f1d1d;
+        --ipx-lv-level-warning-bg: #2a1d08;
+        --ipx-lv-level-warning-text: #fcd34d;
+        --ipx-lv-level-warning-border: #78350f;
+        --ipx-lv-level-notice-bg: #1e1b4b;
+        --ipx-lv-level-notice-text: #c7d2fe;
+        --ipx-lv-level-notice-border: #3730a3;
+        --ipx-lv-level-info-bg: #0f1d3a;
+        --ipx-lv-level-info-text: #93c5fd;
+        --ipx-lv-level-info-border: #1e3a8a;
+        --ipx-lv-level-debug-bg: #1e293b;
+        --ipx-lv-level-debug-text: #cbd5e1;
+        --ipx-lv-level-debug-border: #334155;
+        --ipx-lv-level-unknown-bg: transparent;
+        --ipx-lv-level-unknown-text: #94a3b8;
+        --ipx-lv-level-unknown-border: #475569;
+        --ipx-lv-chart-errors: #d03b3b;
+        --ipx-lv-chart-warnings: #c98500;
+        --ipx-lv-chart-other: #3987e5;
+        --ipx-lv-chart-bar: #3987e5;
+        --ipx-lv-chart-grid: #1f2a3a;
+        --ipx-lv-chart-axis: #94a3b8;
+        --ipx-lv-shadow-sm: none;
+        --ipx-lv-shadow-md: none;
+        --ipx-lv-shadow-lg: 0 16px 40px -8px rgba(0, 0, 0, 0.6);
+    }
+}
